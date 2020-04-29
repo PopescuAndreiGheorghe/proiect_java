@@ -53,7 +53,6 @@ public class LoginPage extends AppCompatActivity {
                 options.setPassword(credentials._password.toCharArray());
                 try {
                     mqttClient.token = mqttClient.mqttAndroidClient.connect(options);
-                    Log.w("tag", mqttClient.token.toString());
                     mqttClient.token.setActionCallback(new IMqttActionListener() {
                         @Override
                         public void onSuccess(IMqttToken asyncActionToken) {
@@ -61,7 +60,6 @@ public class LoginPage extends AppCompatActivity {
                             Intent intent = new Intent(context, HomePage.class);
                             startActivity(intent);
                             finish();
-                            Log.w("Tag","onSuccess");
                         }
 
                         @Override
